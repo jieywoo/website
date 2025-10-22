@@ -1,30 +1,18 @@
 {
   "items": [
     {
-      "title": "Multimodal Adaptive Behavior Generation During Human–Agent Interaction",
+      "title": "The GENEA Challenge 2023: A large-scale evaluation of gesture generation models in monadic and dyadic settings",
       "authors": [
+        "T Kucherenko",
+        "R Nagy",
+        "Y Yoon",
         "J Woo",
-        "C Achard",
-        "C Pelachaud"
+        "T Nikolov",
+        "M Tsakov",
+        "GE Henter"
       ],
-      "venue": "Multimodal Interaction Technologies for Training Affective Social Skills …, 2025",
-      "year": "2025",
-      "abstract": ""
-    },
-    {
-      "title": "GRETA: Modular Platform to Create Adaptive Socially Interactive Agents",
-      "authors": [
-        "M Grimaldi",
-        "J Woo",
-        "F Boucaud",
-        "L Galland",
-        "N Younsi",
-        "L Yang",
-        "M Fares",
-        "..."
-      ],
-      "venue": "arXiv preprint arXiv:2503.15504, 2025",
-      "year": "2025",
+      "venue": "Proceedings of the 25th international conference on multimodal interaction …, 2023",
+      "year": "2023",
       "abstract": ""
     },
     {
@@ -42,21 +30,6 @@
       "abstract": ""
     },
     {
-      "title": "The GENEA Challenge 2023: A large-scale evaluation of gesture generation models in monadic and dyadic settings",
-      "authors": [
-        "T Kucherenko",
-        "R Nagy",
-        "Y Yoon",
-        "J Woo",
-        "T Nikolov",
-        "M Tsakov",
-        "GE Henter"
-      ],
-      "venue": "Proceedings of the 25th international conference on multimodal interaction …, 2023",
-      "year": "2023",
-      "abstract": ""
-    },
-    {
       "title": "Asap: Endowing adaptation capability to agent in human-agent interaction",
       "authors": [
         "J Woo",
@@ -65,6 +38,17 @@
       ],
       "venue": "Proceedings of the 28th International Conference on Intelligent User …, 2023",
       "year": "2023",
+      "abstract": ""
+    },
+    {
+      "title": "Creating an interactive human/agent loop using multimodal recurrent neural networks",
+      "authors": [
+        "J Woo",
+        "CI Pelachaud",
+        "C Achard"
+      ],
+      "venue": "WACAI 2021, 2021",
+      "year": "2021",
       "abstract": ""
     },
     {
@@ -130,6 +114,30 @@
       "abstract": ""
     },
     {
+      "title": "Development of an interactive human/agent loop using multimodal recurrent neural networks",
+      "authors": [
+        "J Woo"
+      ],
+      "venue": "Proceedings of the 2021 International Conference on Multimodal Interaction …, 2021",
+      "year": "2021",
+      "abstract": ""
+    },
+    {
+      "title": "A framework for the assessment and training of collaborative problem-solving social skills",
+      "authors": [
+        "J Hamet Bagnou",
+        "E Prigent",
+        "JC Martin",
+        "J Woo",
+        "L Yang",
+        "C Achard",
+        "..."
+      ],
+      "venue": "Companion Publication of the 2021 International Conference on Multimodal …, 2021",
+      "year": "2021",
+      "abstract": ""
+    },
+    {
       "title": "Exchanging... watch out!",
       "authors": [
         "L Yang",
@@ -151,6 +159,33 @@
       ],
       "venue": "International Conference on Human-Computer Interaction, 419-432, 2023",
       "year": "2023",
+      "abstract": ""
+    },
+    {
+      "title": "Multimodal Adaptive Behavior Generation During Human–Agent Interaction",
+      "authors": [
+        "J Woo",
+        "C Achard",
+        "C Pelachaud"
+      ],
+      "venue": "Multimodal Interaction Technologies for Training Affective Social Skills …, 2025",
+      "year": "2025",
+      "abstract": ""
+    },
+    {
+      "title": "GRETA: Modular Platform to Create Adaptive Socially Interactive Agents",
+      "authors": [
+        "M Grimaldi",
+        "J Woo",
+        "F Boucaud",
+        "L Galland",
+        "N Younsi",
+        "L Yang",
+        "M Fares",
+        "..."
+      ],
+      "venue": "arXiv preprint arXiv:2503.15504, 2025",
+      "year": "2025",
       "abstract": ""
     },
     {
@@ -186,41 +221,6 @@
       ],
       "venue": "2023 IEEE 17th International Conference on Automatic Face and Gesture …, 2023",
       "year": "2023",
-      "abstract": ""
-    },
-    {
-      "title": "Creating an interactive human/agent loop using multimodal recurrent neural networks",
-      "authors": [
-        "J Woo",
-        "CI Pelachaud",
-        "C Achard"
-      ],
-      "venue": "WACAI 2021, 2021",
-      "year": "2021",
-      "abstract": ""
-    },
-    {
-      "title": "Development of an interactive human/agent loop using multimodal recurrent neural networks",
-      "authors": [
-        "J Woo"
-      ],
-      "venue": "Proceedings of the 2021 International Conference on Multimodal Interaction …, 2021",
-      "year": "2021",
-      "abstract": ""
-    },
-    {
-      "title": "A framework for the assessment and training of collaborative problem-solving social skills",
-      "authors": [
-        "J Hamet Bagnou",
-        "E Prigent",
-        "JC Martin",
-        "J Woo",
-        "L Yang",
-        "C Achard",
-        "..."
-      ],
-      "venue": "Companion Publication of the 2021 International Conference on Multimodal …, 2021",
-      "year": "2021",
       "abstract": ""
     }
   ]
