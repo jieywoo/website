@@ -47,7 +47,7 @@
         "Catherine I Pelachaud",
         "Catherine Achard"
       ],
-      "venue": "WACAI 2021",
+      "venue": "",
       "year": "",
       "abstract": "This paper presents a description of ongoing research that aims to improve the interaction between human and Embodied Conversational Agent (ECA). The main idea is to model the interactive loop between human and agent such as the virtual agent can continuously adapt its behavior according to one's partner. This work, based on recurrent neural network, focuses on non-verbal behavior generation and presents several scientific locks like the multimodality, the intra-personal temporality of multimodal signals or the temporality between partner's social cues. The modeling will be done using the NOXI database containing natural human/human interactions and the nonverbal behavior generation will be tested on the GRETA platform that simulates virtual agents."
     },
@@ -82,7 +82,7 @@
         "Catherine Pelachaud",
         "Catherine Achard"
       ],
-      "venue": "15th International Conference on Agents and Artificial Intelligence",
+      "venue": "",
       "year": "",
       "abstract": "Recent works focus on creating socially interactive agents (SIAs) that are social, engaging, and human-like. SIA development is mainly on endowing the agent with human capacities such as communication and behavior adaptation skills. Nevertheless, the task of evaluating the agent’s quality remains as a challenge. Especially, the way of objectively evaluating human-agent interactions is not evident. To address this problem, we propose new measures to evaluate the agent’s interaction quality. This paper focuses on interlocutors’ continuous, dynamic, and reciprocal behavior adaptation during an interaction, which we refer to as reciprocal adaptation. Our reciprocal adaptation measures capture this adaptation by measuring the synchrony of behaviors including their absence of response and by assessing the behavior entrainment loop. We investigate the nonverbal adaptation, notably for smile, in dyads. Statistical analyses are conducted to improve the understanding of the adaptation phenomenon. We also studied how the presence of reciprocal adaptation may be related to different aspects of the interaction dynamics and conversational engagement. We investigate how the influence of the social dimensions of warmth and competence along with the engagement is related to reciprocal adaptation."
     },
@@ -222,7 +222,7 @@
         "Catherine Achard",
         "Catherine Pelachaud"
       ],
-      "venue": "2023 IEEE 17th International Conference on Automatic Face and Gesture Recognition (FG)",
+      "venue": "",
       "year": "",
       "abstract": "During an interaction, people exchange speaking turns by coordinating with their partners. Exchanges can be done smoothly, with pauses between turns or through interruptions. Previous studies have analyzed various modalities to investigate turn shifts and their types (smooth turn exchange, overlap, and interruption). Modality analyses were also done to study the interpersonal synchronization which is observed throughout the whole interaction. Likewise, we intend to analyze different modalities to find a relationship between the different turn switch types and interpersonal synchrony. In this study, we provide an analysis of multimodal features, focusing on prosodic features (F0 and loudness), head activity, and facial action units, to characterize different switch types."
     }
