@@ -41,8 +41,7 @@
       scholarUserId: "GOCSqdUAAAAJ"
     };
     document.getElementById("hero-name").textContent = CONFIG.name;
-    document.getElementById("scholar-link").href =
-      `https://scholar.google.com/citations?user=${CONFIG.scholarUserId}&hl=en`;
+    document.getElementById("scholar-link").href = `https://scholar.google.com/citations?user=${CONFIG.scholarUserId}&hl=en`;
 
     async function loadPublications() {
       try {
@@ -50,21 +49,21 @@
         const data = await res.json();
         const list = document.getElementById("pub-list");
         list.innerHTML = "";
+        // Sort by year descending (most recent first)
         data.items.sort((a,b)=>(b.year||0)-(a.year||0));
         for (const p of data.items) {
           const div = document.createElement("div");
           div.className = "glass p-5 rounded-xl";
           div.innerHTML = `
             <h3 class="font-semibold text-lg">${p.title}</h3>
-            <div class="opacity-80">${p.authors?.join(", ")}</div>
-            <div class="text-sm opacity-70">${p.venue||""} · ${p.year||""}</div>
-            <div class="text-sm mt-1">Citations: ${p.citations||0}</div>
+            <div class="opacity-80">${p.authors?.join(", ") || ""}</div>
+            <div class="text-sm italic opacity-70">${p.venue || ""}${p.year ? `, ${p.year}` : ""}</div>
+            <p class="mt-2 text-sm opacity-90">${p.abstract || ""}</p>
           `;
           list.appendChild(div);
         }
       } catch {
-        document.getElementById("pub-list").innerHTML =
-          "<p class='opacity-70'>Loading publications failed.</p>";
+        document.getElementById("pub-list").innerHTML = "<p class='opacity-70'>Loading publications failed.</p>";
       }
     }
     loadPublications();
