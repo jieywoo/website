@@ -2,11 +2,10 @@ import json, asyncio, re
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
 
-SCHOLAR_ID = "GOCSqdUAAAAJ"
+SCHOLAR_ID = "GOCSqdUAAAAJ"  # <-- your Google Scholar ID
 OUTPUT = "publications.json"
 
 async def fetch_publications_page(page):
-    # Scroll to ensure all papers are loaded
     last_height = 0
     for _ in range(10):
         await page.mouse.wheel(0, 20000)
@@ -18,52 +17,49 @@ async def fetch_publications_page(page):
     try:
         await page.wait_for_selector("#gsc_a_b", timeout=60000)
     except PlaywrightTimeout:
-        print("⚠️ Timeout waiting for #gsc_a_b; continuing anyway.")
+        print("⚠️ Timeout waiting for publications table.")
     return await page.content()
 
-async def fetch_full_abstract(page, element_selector):
-    """Open popup for one publication and extract its abstract."""
+async def fetch_full_abstract(page, index):
     try:
-        await element_selector.click()
-        await page.wait_for_selector("#gsc_vcd_title", timeout=15000)
+        selector = f"#gsc_a_b .gsc_a_tr:nth-child({index}) .gsc_a_at"
+        elem = page.locator(selector)
+        await elem.first.click()
+        await page.wait_for_selector("#gsc_vcd_title", timeout=10000)
         html = await page.inner_html("#gsc_vcd")
         soup = BeautifulSoup(html, "html.parser")
-        # Extract abstract (it may be under multiple <div class="gsh_csp"> tags)
-        abstract_tag = soup.find("div", class_="gsh_csp")
-        abstract = abstract_tag.text.strip() if abstract_tag else ""
-        # Clean up popup
+        abs_tag = soup.find("div", class_="gsh_csp")
+        abstract = abs_tag.get_text(" ", strip=True) if abs_tag else ""
         await page.click("#gsc_md_titlebar button", timeout=5000)
-        await asyncio.sleep(0.5)
+        await asyncio.sleep(0.3)
         return abstract
-    except Exception as e:
-        print("⚠️ Could not fetch abstract:", e)
+    except Exception:
         return ""
 
-def parse_publications_list(soup):
-    """Extract all visible rows from the list table."""
-    pubs = []
+def clean_venue(venue: str, year: str) -> str:
+    """Remove the year or commas at the end of the venue text."""
+    if not venue:
+        return ""
+    v = venue.replace(" ", " ")  # replace non-breaking spaces
+    if year:
+        v = re.sub(rf"[, ]*\b{re.escape(year)}\b[, ]*$", "", v).strip(" ,")
+    return v
+
+def parse_list(soup):
     rows = soup.select("#gsc_a_b .gsc_a_tr")
+    pubs = []
     for row in rows:
         title_tag = row.select_one(".gsc_a_at")
         title = title_tag.text.strip() if title_tag else ""
-        # authors line (first gray line)
         authors_tag = row.select_one(".gs_gray")
         authors = authors_tag.text.strip() if authors_tag else ""
-        # second gray line → venue and possibly year
         meta_tags = row.select(".gs_gray")
         venue = ""
         if len(meta_tags) > 1:
             venue = meta_tags[1].text.strip()
-        # year column
         year_tag = row.select_one(".gsc_a_y span")
         year = year_tag.text.strip() if year_tag else ""
-        pubs.append({
-            "title": title,
-            "authors": authors,
-            "venue": venue,
-            "year": year,
-            "abstract": "",
-        })
+        pubs.append({"title": title, "authors": authors, "venue": venue, "year": year})
     return pubs
 
 async def main():
@@ -71,47 +67,36 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True, args=["--no-sandbox"])
         page = await browser.new_page()
-        print(f"Loading {url}")
+        print(f"Fetching: {url}")
         await page.goto(url, timeout=90000)
-
         html = await fetch_publications_page(page)
         soup = BeautifulSoup(html, "html.parser")
-        pubs = parse_publications_list(soup)
+        pubs = parse_list(soup)
 
-        # Fetch full abstracts by clicking each publication
-        print(f"Fetching abstracts for {len(pubs)} publications...")
+        # Add full abstracts
+        print(f"Retrieving abstracts for {len(pubs)} items...")
         for i, pub in enumerate(pubs, 1):
-            try:
-                selector = f"#gsc_a_b .gsc_a_tr:nth-child({i}) .gsc_a_at"
-                elem = page.locator(selector)
-                if await elem.count() == 0:
-                    continue
-                abstract = await fetch_full_abstract(page, elem)
-                pub["abstract"] = abstract
-            except Exception as e:
-                print("⚠️ Skipped abstract:", e)
+            abs_text = await fetch_full_abstract(page, i)
+            pub["abstract"] = abs_text
+            await asyncio.sleep(0.3)
 
         await browser.close()
 
-    # Clean and format data
+    # Clean author lists and venues
     for p in pubs:
-        # split authors into list
         p["authors"] = [a.strip() for a in re.split(",| and ", p["authors"]) if a.strip()]
-        # ensure only one year field and remove duplicates in venue string
-        p["venue"] = re.sub(r"\\b\\d{4}\\b", "", p["venue"]).strip()
-        p["venue"] = re.sub(r"\\s{2,}", " ", p["venue"]).strip()
+        p["venue"] = clean_venue(p.get("venue", ""), p.get("year", ""))
 
-    # Sort by year (descending numeric if possible)
+    # Sort by newest year
     def year_key(pub):
         try:
-            return int(re.search(r"\\d{4}", pub.get("year", "")).group())
+            return int(re.search(r"\d{4}", pub.get("year", "")).group())
         except:
             return 0
     pubs.sort(key=year_key, reverse=True)
 
     with open(OUTPUT, "w", encoding="utf-8") as f:
         json.dump({"items": pubs}, f, indent=2, ensure_ascii=False)
-
     print(f"✅ Saved {len(pubs)} publications to {OUTPUT}")
 
 if __name__ == "__main__":
