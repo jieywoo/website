@@ -17,17 +17,15 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Configure git
+      - name: Set up git
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
 
-      - name: Install Chrome & Selenium
+      - name: Install Playwright + deps
         run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
-          pip install --upgrade pip
-          pip install selenium==4.23.1 beautifulsoup4==4.12.3
+          pip install playwright==1.48.0 beautifulsoup4==4.12.3
+          playwright install chromium
 
       - name: Run scraper
         run: python update_pubs.py
