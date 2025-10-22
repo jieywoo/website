@@ -10,6 +10,8 @@
   <style>
     body { font-family: Inter, sans-serif; background: #f9fafb; color: #111; }
     .glass { background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); }
+    summary { cursor: pointer; color: #4f46e5; font-weight: 500; }
+    summary:hover { text-decoration: underline; }
     @media (prefers-color-scheme: dark){
       body { background: #0b101b; color: #e6e9ef; }
       .glass { background: rgba(20,25,35,0.8); }
@@ -49,21 +51,31 @@
         const data = await res.json();
         const list = document.getElementById("pub-list");
         list.innerHTML = "";
-        // Sort by year descending (most recent first)
         data.items.sort((a,b)=>(b.year||0)-(a.year||0));
         for (const p of data.items) {
           const div = document.createElement("div");
           div.className = "glass p-5 rounded-xl";
+          const authors = (p.authors || []).join(", ");
+          const venue = p.venue ? `<div class='italic opacity-80'>${p.venue}</div>` : "";
+          const year = p.year ? `<div class='opacity-80'>${p.year}</div>` : "";
+          const abstract = p.abstract ? `
+            <details class="mt-2">
+              <summary>Show abstract</summary>
+              <p class="mt-2 text-sm opacity-90 leading-relaxed">${p.abstract}</p>
+            </details>` : "";
           div.innerHTML = `
-            <h3 class="font-semibold text-lg">${p.title}</h3>
-            <div class="opacity-80">${p.authors?.join(", ") || ""}</div>
-            <div class="text-sm italic opacity-70">${p.venue || ""}${p.year ? `, ${p.year}` : ""}</div>
-            <p class="mt-2 text-sm opacity-90">${p.abstract || ""}</p>
+            <h3 class="font-semibold text-lg mb-1">${p.title}</h3>
+            <div class="opacity-90">${authors}</div>
+            ${venue}
+            ${year}
+            ${abstract}
           `;
           list.appendChild(div);
         }
-      } catch {
-        document.getElementById("pub-list").innerHTML = "<p class='opacity-70'>Loading publications failed.</p>";
+      } catch (err) {
+        console.error("Error loading publications.json", err);
+        document.getElementById("pub-list").innerHTML =
+          "<p class='opacity-70'>Failed to load publications. Please check publications.json.</p>";
       }
     }
     loadPublications();
