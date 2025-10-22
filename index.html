@@ -1,130 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Editable Index — jieywoo/website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Academic Profile</title>
+  <meta name="description" content="Dynamic academic site auto-synced with Google Scholar." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root{--bg:#0f1720;--panel:#0b1220;--accent:#60a5fa;--muted:#94a3b8;--card:#071022}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#061021 0%, #071027 100%);color:#e6eef8}
-    .wrap{max-width:1000px;margin:32px auto;padding:20px;background:rgba(255,255,255,0.02);border-radius:12px;box-shadow:0 6px 24px rgba(2,6,23,0.6)}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-    header h1{font-size:1.1rem;margin:0}
-    #controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-    button{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);padding:8px 12px;border-radius:8px;cursor:pointer}
-    button.primary{background:linear-gradient(90deg,#2563eb,#60a5fa);border:none;color:#041124}
-    #editor{min-height:420px;border-radius:10px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);outline:none;border:1px solid rgba(255,255,255,0.03);box-shadow:inset 0 1px 0 rgba(255,255,255,0.02);overflow:auto}
-    footer{margin-top:12px;color:var(--muted);font-size:0.9rem}
-    .small{font-size:0.85rem;color:var(--muted)}
-    label{display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
+    body { font-family: Inter, sans-serif; background: #f9fafb; color: #111; }
+    .glass { background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); }
+    @media (prefers-color-scheme: dark){
+      body { background: #0b101b; color: #e6e9ef; }
+      .glass { background: rgba(20,25,35,0.8); }
+    }
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <h1>index.html — Editable page</h1>
-      <div id="controls">
-        <button id="newBtn" title="New (Ctrl/Cmd+N)">New</button>
-        <button id="openBtn" title="Open file (Ctrl/Cmd+O)">Open</button>
-        <input id="fileInput" type="file" accept=".html,.htm,.txt" style="display:none">
-        <button id="saveBtn" class="primary" title="Save as file (Ctrl/Cmd+S)">Save</button>
-        <button id="downloadHtmlBtn" title="Download complete HTML">Download HTML</button>
-        <label><input id="autosave" type="checkbox"> Autosave</label>
-      </div>
-    </header>
+<body class="min-h-screen">
+  <header class="sticky top-0 bg-white/80 dark:bg-slate-950/70 border-b border-black/10 dark:border-white/10 backdrop-blur">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
+      <h1 id="hero-name" class="text-xl font-bold"></h1>
+      <a id="scholar-link" target="_blank" class="text-indigo-600 hover:underline">Google Scholar</a>
+    </div>
+  </header>
 
-    <main>
-      <div id="editor" contenteditable="true" spellcheck="true" aria-label="Editable content">
-        <h2 contenteditable="true">Welcome to your editable index.html</h2>
-        <p>Edit this content directly. Use the controls above to create a new file, open a local file, or save your edits as a file. Autosave stores in localStorage.</p>
-        <p class="small">Tip: keyboard shortcuts — New: Ctrl/Cmd+N, Open: Ctrl/Cmd+O, Save: Ctrl/Cmd+S</p>
-      </div>
-    </main>
+  <main class="max-w-5xl mx-auto p-6">
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold mb-4">Publications</h2>
+      <div id="pub-list" class="grid gap-4"></div>
+    </section>
+  </main>
 
-    <footer>
-      <p class="small">This file is intentionally a simple, client-side editable page. It cannot push changes back to GitHub by itself — use your git tooling or GitHub UI to commit updates to the repository. Use the Save button to download a copy of your edits.</p>
-    </footer>
-  </div>
+  <footer class="text-center opacity-70 py-10 border-t border-black/5 dark:border-white/10">
+    Auto-synced from Google Scholar · Hosted on GitHub Pages
+  </footer>
 
   <script>
-    // Basic editor helpers: New, Open, Save, Download HTML, Autosave to localStorage
-    const editor = document.getElementById('editor');
-    const newBtn = document.getElementById('newBtn');
-    const openBtn = document.getElementById('openBtn');
-    const fileInput = document.getElementById('fileInput');
-    const saveBtn = document.getElementById('saveBtn');
-    const downloadHtmlBtn = document.getElementById('downloadHtmlBtn');
-    const autosaveCheckbox = document.getElementById('autosave');
-    const STORAGE_KEY = 'jieywoo_website_index_html_draft_v1';
+    const CONFIG = {
+      name: "Your Name",
+      scholarUserId: "GOCSqdUAAAAJ"
+    };
+    document.getElementById("hero-name").textContent = CONFIG.name;
+    document.getElementById("scholar-link").href =
+      `https://scholar.google.com/citations?user=${CONFIG.scholarUserId}&hl=en`;
 
-    function download(filename, content, mime = 'text/html'){
-      const blob = new Blob([content], { type: mime + ';charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 5000);
-    }
-
-    newBtn.addEventListener('click', () => {
-      if (confirm('Create new empty document? Unsaved changes will be lost.')) editor.innerHTML = '';
-    });
-
-    openBtn.addEventListener('click', () => fileInput.click());
-    fileInput.addEventListener('change', (e) => {
-      const f = e.target.files && e.target.files[0];
-      if (!f) return;
-      const reader = new FileReader();
-      reader.onload = () => editor.innerHTML = String(reader.result);
-      reader.readAsText(f);
-    });
-
-    saveBtn.addEventListener('click', () => {
-      const content = editor.innerHTML;
-      download('index.html', '<!doctype html>\n<html>\n<head>\n<meta charset="utf-8">\n<title>index.html</title>\n</head>\n<body>' + content + '</body>\n</html>');
-    });
-
-    downloadHtmlBtn.addEventListener('click', () => {
-      const built = `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<title>index.html</title>\n</head>\n<body>\n${editor.innerHTML}\n</body>\n</html>`;
-      download('index.html', built);
-    });
-
-    // Autosave
-    let autosaveTimer = null;
-    autosaveCheckbox.addEventListener('change', () => {
-      if (autosaveCheckbox.checked) startAutosave(); else stopAutosave();
-    });
-
-    function startAutosave(){
-      stopAutosave();
-      autosaveTimer = setInterval(() => localStorage.setItem(STORAGE_KEY, editor.innerHTML), 2000);
-    }
-    function stopAutosave(){ if (autosaveTimer) clearInterval(autosaveTimer); autosaveTimer = null; }
-
-    // Load draft from localStorage if present
-    const draft = localStorage.getItem(STORAGE_KEY);
-    if (draft){
-      const keep = confirm('A saved draft was found in localStorage. Load it into the editor?');
-      if (keep) editor.innerHTML = draft; else localStorage.removeItem(STORAGE_KEY);
-    }
-
-    // Keyboard shortcuts
-    window.addEventListener('keydown', (e) => {
-      const mod = e.ctrlKey || e.metaKey;
-      if (!mod) return;
-      if (e.key.toLowerCase() === 's'){
-        e.preventDefault(); saveBtn.click();
-      } else if (e.key.toLowerCase() === 'o'){
-        e.preventDefault(); openBtn.click();
-      } else if (e.key.toLowerCase() === 'n'){
-        e.preventDefault(); newBtn.click();
+    async function loadPublications() {
+      try {
+        const res = await fetch("publications.json?nocache=" + Date.now());
+        const data = await res.json();
+        const list = document.getElementById("pub-list");
+        list.innerHTML = "";
+        data.items.sort((a,b)=>(b.year||0)-(a.year||0));
+        for (const p of data.items) {
+          const div = document.createElement("div");
+          div.className = "glass p-5 rounded-xl";
+          div.innerHTML = `
+            <h3 class="font-semibold text-lg">${p.title}</h3>
+            <div class="opacity-80">${p.authors?.join(", ")}</div>
+            <div class="text-sm opacity-70">${p.venue||""} · ${p.year||""}</div>
+            <div class="text-sm mt-1">Citations: ${p.citations||0}</div>
+          `;
+          list.appendChild(div);
+        }
+      } catch {
+        document.getElementById("pub-list").innerHTML =
+          "<p class='opacity-70'>Loading publications failed.</p>";
       }
-    });
-
-    // Before unload warning if editor has content
-    let initial = editor.innerHTML;
-    window.addEventListener('beforeunload', (e) => {
-      if (editor.innerHTML !== initial) e.returnValue = 'You have unsaved changes.';
-    });
+    }
+    loadPublications();
   </script>
 </body>
 </html>
