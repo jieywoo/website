@@ -1,64 +1,53 @@
-import json, time
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+import json, asyncio
 from bs4 import BeautifulSoup
+from playwright.async_api import async_playwright
 
 SCHOLAR_ID = "GOCSqdUAAAAJ"
 OUTPUT = "publications.json"
 
-def init_driver():
-    opts = Options()
-    opts.add_argument("--headless=new")
-    opts.add_argument("--no-sandbox")
-    opts.add_argument("--disable-dev-shm-usage")
-    opts.add_argument("--disable-gpu")
-    opts.add_argument("--window-size=1920,1080")
-    opts.binary_location = "/usr/bin/chromium-browser"
-    return webdriver.Chrome(options=opts)
+async def fetch_publications():
+    url = f"https://scholar.google.com/citations?user={SCHOLAR_ID}&hl=en"
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=True)
+        page = await browser.new_page()
+        await page.goto(url, timeout=60000)
+        await page.wait_for_selector("#gsc_a_b")
+        html = await page.content()
+        await browser.close()
+        return html
 
-def parse_profile(html):
+def parse_publications(html):
     soup = BeautifulSoup(html, "html.parser")
     pubs = []
-    rows = soup.select("#gsc_a_b .gsc_a_tr")
-    for row in rows:
+    for row in soup.select("#gsc_a_b .gsc_a_tr"):
         title_tag = row.select_one(".gsc_a_at")
         title = title_tag.text.strip() if title_tag else ""
-        authors = row.select_one(".gs_gray").text.strip() if row.select_one(".gs_gray") else ""
-        meta_tags = row.select(".gs_gray")
+        authors = row.select_one(".gs_gray")
+        author_str = authors.text.strip() if authors else ""
+        venue_tag = row.select(".gs_gray")
         venue = ""
-        if len(meta_tags) > 1:
-            venue = meta_tags[1].text.strip()
+        if len(venue_tag) > 1:
+            venue = venue_tag[1].text.strip()
         year_tag = row.select_one(".gsc_a_y span")
         year = year_tag.text.strip() if year_tag else ""
-        # open publication popup for abstract
-        abstract = ""
-        if title_tag and title_tag.get("data-href"):
-            pass  # skip popup retrieval for speed
         pubs.append({
             "title": title,
-            "authors": authors.split(", "),
+            "authors": author_str.split(", "),
             "venue": venue,
             "year": year,
-            "abstract": abstract
+            "abstract": ""  # abstracts can be added later if you want
         })
+    # Sort by year descending
+    pubs.sort(key=lambda x: x.get("year", ""), reverse=True)
     return pubs
 
-def main():
-    url = f"https://scholar.google.com/citations?user={SCHOLAR_ID}&hl=en"
-    print("Fetching:", url)
-    driver = init_driver()
-    driver.get(url)
-    time.sleep(3)
-    html = driver.page_source
-    driver.quit()
-
-    publications = parse_profile(html)
-    publications.sort(key=lambda p: p.get("year", ""), reverse=True)
-
+async def main():
+    print(f"Fetching data for Scholar ID: {SCHOLAR_ID}")
+    html = await fetch_publications()
+    pubs = parse_publications(html)
     with open(OUTPUT, "w", encoding="utf-8") as f:
-        json.dump({"items": publications}, f, indent=2, ensure_ascii=False)
-
-    print(f"✅ Saved {len(publications)} publications to {OUTPUT}")
+        json.dump({"items": pubs}, f, indent=2, ensure_ascii=False)
+    print(f"✅ Saved {len(pubs)} publications to {OUTPUT}")
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
