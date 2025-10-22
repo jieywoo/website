@@ -5,15 +5,21 @@ SCHOLAR_ID = "GOCSqdUAAAAJ"
 OUTPUT = "publications.json"
 
 def main():
+    # Optional: try to use Tor or direct mode (no proxy)
     pg = ProxyGenerator()
-    pg.FreeProxies()
-    scholarly.use_proxy(pg)
+    if not pg.FreeProxies(repeat=True):
+        print("⚠️ Could not set free proxies, using direct connection.")
+        scholarly.use_proxy(None)
+    else:
+        scholarly.use_proxy(pg)
 
+    # Fetch author data
+    print(f"Fetching data for Scholar ID: {SCHOLAR_ID} ...")
     author = scholarly.search_author_id(SCHOLAR_ID)
     author = scholarly.fill(author, sections=["publications"])
 
     items = []
-    for pub in author["publications"]:
+    for pub in author.get("publications", []):
         pub = scholarly.fill(pub)
         bib = pub.get("bib", {})
         items.append({
