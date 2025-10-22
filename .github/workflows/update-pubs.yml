@@ -2,50 +2,42 @@ name: Update Publications from Google Scholar
 
 on:
   schedule:
-    - cron: '0 3 * * 0'   # Every Sunday 03:00 UTC
+    - cron: '0 3 * * 0'
   workflow_dispatch:
 
 permissions:
-  contents: write   # ✅ allow this workflow to push files back
+  contents: write
 
 jobs:
   update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          persist-credentials: false  # disable default token
+          persist-credentials: false
 
-      - name: Set up Git credentials
+      - name: Configure git
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
+      - name: Install Chrome & Selenium
         run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
           pip install --upgrade pip
-          pip install scholarly==1.7.11
+          pip install selenium==4.23.1 beautifulsoup4==4.12.3
 
-      - name: Fetch publications from Google Scholar
+      - name: Run scraper
         run: python update_pubs.py
 
-      - name: Commit and push updated publications.json
+      - name: Commit & push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ -f publications.json ]; then
-            git add publications.json
-            git diff --cached --quiet && echo "No changes to commit." || (
-              git commit -m "Auto-update publications.json"
-              git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} HEAD:main
-            )
-          else
-            echo "⚠️ publications.json not found — script may have failed."
-          fi
+          git add publications.json
+          git diff --cached --quiet && echo "No changes" || (
+            git commit -m "Auto-update publications.json"
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} HEAD:main
+          )
