@@ -1,230 +1,227 @@
 {
   "items": [
     {
-      "title": "The GENEA Challenge 2023: A large-scale evaluation of gesture generation models in monadic and dyadic settings",
-      "authors": [
-        "Taras Kucherenko",
-        "Rajmund Nagy",
-        "Youngwoo Yoon",
-        "Jieyeon Woo",
-        "Teodor Nikolov",
-        "Mihail Tsakov",
-        "Gustav Eje Henter"
-      ],
-      "venue": "",
-      "year": "",
-      "abstract": " This paper reports on the GENEA Challenge 2023, in which participating teams built speech-driven gesture-generation systems using the same speech and motion dataset, followed by a joint evaluation. This year’s challenge provided data on both sides of a dyadic interaction, allowing teams to generate full-body motion for an agent given its speech (text and audio) and the speech and motion of the interlocutor. We evaluated 12 submissions and 2 baselines together with held-out motion-capture data in several large-scale user studies. The studies focused on three aspects: 1) the human-likeness of the motion, 2) the appropriateness of the motion for the agent’s own speech whilst controlling for the human-likeness of the motion, and 3) the appropriateness of the motion for the behaviour of the interlocutor in the interaction, using a setup that controls for both the human-likeness of the motion and the agent’s own …"
-    },
-    {
-      "title": "Adaptive virtual agent: Design and evaluation for real-time human-agent interaction",
-      "authors": [
-        "Jieyeon Woo",
-        "Kazuhiro Shidara",
-        "Catherine Achard",
-        "Hiroki Tanaka",
-        "Satoshi Nakamura",
-        "Catherine Pelachaud"
-      ],
-      "venue": "International Journal of Human-Computer Studies",
-      "year": "",
-      "abstract": "When we converse, we adapt our behaviors to our interlocutors. The adaptation can serve to indicate our engagement which can also elicit enhancement of the involvement of others. Virtual agents (or socially interactive virtual agents) that play the role of interaction partners can improve the human users’ interaction experience by displaying continuous and adaptive behaviors in real time. Virtual agents have been used in multiple domains to improve user interaction and performance. The promising results of the endowment of adaptation to agents in increasing the agents’ perception and user experience were shown in previous studies. In this paper, we develop an adaptive virtual agent that renders real-time adaptive behaviors based on the behaviors shown by its human interlocutor. The ASAP model rendering reciprocally adaptive agent behavior was employed to realize the system. The system consists of four …"
-    },
-    {
-      "title": "Asap: Endowing adaptation capability to agent in human-agent interaction",
-      "authors": [
-        "Jieyeon Woo",
-        "Catherine Pelachaud",
-        "Catherine Achard"
-      ],
-      "venue": "",
-      "year": "",
-      "abstract": " Socially Interactive Agents (SIAs) offer users with interactive face-to-face conversations. They can take the role of a speaker and communicate verbally and nonverbally their intentions and emotional states; but they should also act as active listener and be an interactive partner. In human-human interaction, interlocutors adapt their behaviors reciprocally and dynamically. The endowment of such adaptation capability can allow SIAs to show social and engaging behaviors. In this paper, we focus on modelizing the reciprocal adaptation to generate SIA behaviors for both conversational roles of speaker and listener. We propose the Augmented Self-Attention Pruning (ASAP) neural network model. ASAP incorporates recurrent neural network, attention mechanism of transformers, and pruning technique to learn the reciprocal adaptation via multimodal social signals. We evaluate our work objectively, via several metrics …"
-    },
-    {
-      "title": "Creating an interactive human/agent loop using multimodal recurrent neural networks",
-      "authors": [
-        "Jieyeon Woo",
-        "Catherine I Pelachaud",
-        "Catherine Achard"
-      ],
-      "venue": "",
-      "year": "",
-      "abstract": "This paper presents a description of ongoing research that aims to improve the interaction between human and Embodied Conversational Agent (ECA). The main idea is to model the interactive loop between human and agent such as the virtual agent can continuously adapt its behavior according to one's partner. This work, based on recurrent neural network, focuses on non-verbal behavior generation and presents several scientific locks like the multimodality, the intra-personal temporality of multimodal signals or the temporality between partner's social cues. The modeling will be done using the NOXI database containing natural human/human interactions and the nonverbal behavior generation will be tested on the GRETA platform that simulates virtual agents."
-    },
-    {
-      "title": "AMII: Adaptive multimodal inter-personal and intra-personal model for adapted behavior synthesis",
-      "authors": [
-        "Jieyeon Woo",
-        "Mireille Fares",
-        "Catherine Pelachaud",
-        "Catherine Achard"
-      ],
-      "venue": "arXiv preprint arXiv:2305.11310",
-      "year": "",
-      "abstract": "Socially Interactive Agents (SIAs) are physical or virtual embodied agents that display similar behavior as human multimodal behavior. Modeling SIAs' non-verbal behavior, such as speech and facial gestures, has always been a challenging task, given that a SIA can take the role of a speaker or a listener. A SIA must emit appropriate behavior adapted to its own speech, its previous behaviors (intra-personal), and the User's behaviors (inter-personal) for both roles. We propose AMII, a novel approach to synthesize adaptive facial gestures for SIAs while interacting with Users and acting interchangeably as a speaker or as a listener. AMII is characterized by modality memory encoding schema - where modality corresponds to either speech or facial gestures - and makes use of attention mechanisms to capture the intra-personal and inter-personal relationships. We validate our approach by conducting objective evaluations and comparing it with the state-of-the-art approaches."
-    },
-    {
-      "title": "IAVA: Interactive and Adaptive Virtual Agent",
-      "authors": [
-        "Jieyeon Woo",
-        "Michele Grimaldi",
-        "Catherine Pelachaud",
-        "Catherine Achard"
-      ],
-      "venue": "",
-      "year": "",
-      "abstract": "During an interaction, partners adapt their behaviors to each other. Adaptation can have several functions such as being a sign of engagement and enhancing human users' interaction experience. It is important that virtual agents acting as interaction partners should continuously adapt their behaviors to those of their interlocutors in real time. This paper focuses on creating an interactive virtual agent that is capable of rendering real-time adaptive behaviors in response to its human interlocutor. It ensures the two aspects: generating real-time adaptive behavior and managing natural dialogue. We propose a system of an adaptive virtual agent and choose the e-health application of Cognitive Behavioral Therapy (CBT), which is a mental health treatment that restructures automatic thoughts into balanced thoughts, as a proof-of-concept to showcase the benefit of endowing behavior adaptation to the agent. The virtual …"
-    },
-    {
-      "title": "Reciprocal Adaptation Measures for Human-Agent Interaction Evaluation",
-      "authors": [
-        "Jieyeon Woo",
-        "Catherine Pelachaud",
-        "Catherine Achard"
-      ],
-      "venue": "",
-      "year": "",
-      "abstract": "Recent works focus on creating socially interactive agents (SIAs) that are social, engaging, and human-like. SIA development is mainly on endowing the agent with human capacities such as communication and behavior adaptation skills. Nevertheless, the task of evaluating the agent’s quality remains as a challenge. Especially, the way of objectively evaluating human-agent interactions is not evident. To address this problem, we propose new measures to evaluate the agent’s interaction quality. This paper focuses on interlocutors’ continuous, dynamic, and reciprocal behavior adaptation during an interaction, which we refer to as reciprocal adaptation. Our reciprocal adaptation measures capture this adaptation by measuring the synchrony of behaviors including their absence of response and by assessing the behavior entrainment loop. We investigate the nonverbal adaptation, notably for smile, in dyads. Statistical analyses are conducted to improve the understanding of the adaptation phenomenon. We also studied how the presence of reciprocal adaptation may be related to different aspects of the interaction dynamics and conversational engagement. We investigate how the influence of the social dimensions of warmth and competence along with the engagement is related to reciprocal adaptation."
-    },
-    {
-      "title": "An Adaptive Virtual Agent Platform for Automated Social Skills Training",
-      "authors": [
-        "Takeshi Saga",
-        "Jieyeon Woo",
-        "Alexis Gerard",
-        "Hiroki Tanaka",
-        "Catherine Achard",
-        "Satoshi Nakamura",
-        "Catherine Pelachaud"
-      ],
-      "venue": "",
-      "year": "",
-      "abstract": "Interlocutors adapt their verbal and nonverbal behaviors as signs of engagement during face-to-face interaction. We aim to build engaging Socially Interactive Agents, SIAs, that can adapt their behaviors during interaction. With an adaptive behavior generation model, we drive SIAs’ upper face and head movements in real-time. We evaluate this platform through a scenario for Social Skills Training, SST. "
-    },
-    {
-      "title": "Conducting Cognitive Behavioral Therapy with an Adaptive Virtual Agent",
-      "authors": [
-        "Jieyeon Woo",
-        "Michele Grimaldi",
-        "Catherine Pelachaud",
-        "Catherine Achard"
-      ],
-      "venue": "",
-      "year": "",
-      "abstract": "When conversing, people adapt their behaviors to one another to show their engagement. Virtual agents, acting as interaction partners, should also adapt to their interlocutors in real time. In this paper, we introduce a virtual agent delivering Cognitive Behavioral Therapy (CBT) and adapting its behaviors in real time. The system focuses on the real-time generation of adaptive behavior and management of natural CBT dialogue."
-    },
-    {
-      "title": "Development of an interactive human/agent loop using multimodal recurrent neural networks",
-      "authors": [
-        "Jieyeon Woo"
-      ],
-      "venue": "",
-      "year": "",
-      "abstract": " The development of expressive embodied conversational agent (ECA) still remains a big challenge. During an interaction partners continuously adapt their behaviors one to the other [7]. Adaptation mechanisms may take different forms such as the choice of same vocabulary and grammatical form [31], imitation and synchronization [7]. The aim of my PhD project is to improve the interaction between human and agent. The key idea is to create an interactive loop between human and agent which allows the virtual agent to continuously adapt its behavior according to its partner’s behavior. The main idea is to learn how dyad of humans adapt their behaviors and implement it into human-agent interaction. My work, based on recurrent neural network, focuses on nonverbal behavior generation and addresses several scientific locks like the multimodality, the intra-personal temporality of multimodal signals or the …"
-    },
-    {
-      "title": "A framework for the assessment and training of collaborative problem-solving social skills",
-      "authors": [
-        "Jennifer Hamet Bagnou",
-        "Elise Prigent",
-        "Jean-Claude Martin",
-        "Jieyeon Woo",
-        "Liu Yang",
-        "Catherine Achard",
-        "Catherine Pelachaud",
-        "Céline Clavel"
-      ],
-      "venue": "",
-      "year": "",
-      "abstract": "In this article, we describe a new experimental protocol. We propose to collect social interactions and the associated scales were selected to annotate the collected interactions. Three collaborative games were defined to support the study of social interaction during Collaborative Problem Solving. Three dyads of participants were recorded while solving these three collaborative games via a video conferencing system. We explain how the collected behaviors and social interactions were annotated using two scales and three human raters. The results indicate moderate to excellent reliability of these scales. We intend to use the resulting corpus by recruiting more subjects to explore the relations between attention and social interactions, and also for inspiring the design and validation of virtual characters for social skills training."
-    },
-    {
-      "title": "Exchanging... watch out!",
-      "authors": [
-        "Liu Yang",
-        "Jieyeon Woo",
-        "Catherine Achard",
-        "Catherine Pelachaud"
-      ],
-      "venue": "arXiv preprint arXiv:2311.04747",
-      "year": "",
-      "abstract": "During a conversation, individuals take turns speaking and engage in exchanges, which can occur smoothly or involve interruptions. Listeners have various ways of participating, such as displaying backchannels, signalling the aim to take a turn, waiting for the speaker to yield the floor, or even interrupting and taking over the conversation. These exchanges are commonplace in natural interactions. To create realistic and engaging interactions between human participants and embodied conversational agents (ECAs), it is crucial to equip virtual agents with the ability to manage these exchanges. This includes being able to initiate or respond to signals from the human user. In order to achieve this, we annotate, analyze and characterize these exchanges in human-human conversations. In this paper, we present an analysis of multimodal features, with a focus on prosodic features such as pitch (F0) and loudness, as well as facial expressions, to describe different types of exchanges."
-    },
-    {
-      "title": "Is Turn-Shift Distinguishable with Synchrony?",
-      "authors": [
-        "Jieyeon Woo",
-        "Liu Yang",
-        "Catherine Pelachaud",
-        "Catherine Achard"
-      ],
-      "venue": "",
-      "year": "",
-      "abstract": "During an interaction, interlocutors emit multimodal social signals to communicate their intent by exchanging speaking turns smoothly or through interruptions, and adapting to their interacting partners which is referred to as interpersonal synchrony. We are interested in understanding whether the synchrony of multimodal signals could help to distinguish different types of turn-shifts. We consider three types of turn-shifts: smooth turn exchange, interruption and backchannel in this paper. We segmented each turn-shift into three phases: before, during and after, we calculated the synchrony measures of the three phases for multimodal signals (facial expression, head pose, and low-level acoustic features). In this paper, a brief analysis of synchronization during turn-shifts is presented, we also study the evolution of interpersonal synchrony before, during and after the turn-shifts. We proposed computational models for the …"
-    },
-    {
       "title": "Multimodal Adaptive Behavior Generation During Human–Agent Interaction",
       "authors": [
-        "Jieyeon Woo",
-        "Catherine Achard",
-        "Catherine Pelachaud"
+        "J Woo",
+        "C Achard",
+        "C Pelachaud"
       ],
-      "venue": "",
-      "year": "",
-      "abstract": "Interaction consists of verbal exchange as well as multimodal social signals. Multimodality is essential in communicating fruitfully by sending implicit and explicit information. When conversing, multimodal signals are transferred back and forth between interlocutors. Via this transfer, interlocutors constantly adapt their behaviors to those of their interlocutors. Virtual agents, which look and act like humans, should also consider the multimodal and adaptive aspect of the interaction they build with the users. In this chapter, we elaborate on adaptive behavior evaluation methods, multimodal adaptive behavior generation modeling, and the effect of a virtual agent providing real-time adaptive behaviors for cognitive behavioral therapy (CBT)."
+      "venue": "Multimodal Interaction Technologies for Training Affective Social Skills …, 2025",
+      "year": "2025",
+      "abstract": ""
     },
     {
       "title": "GRETA: Modular Platform to Create Adaptive Socially Interactive Agents",
       "authors": [
-        "Michele Grimaldi",
-        "Jieyeon Woo",
-        "Fabien Boucaud",
-        "Lucie Galland",
-        "Nezih Younsi",
-        "Liu Yang",
-        "Mireille Fares",
-        "Sean Graux",
-        "Philippe Gauthier",
-        "Catherine Pelachaud"
+        "M Grimaldi",
+        "J Woo",
+        "F Boucaud",
+        "L Galland",
+        "N Younsi",
+        "L Yang",
+        "M Fares",
+        "..."
       ],
-      "venue": "arXiv preprint arXiv:2503.15504",
-      "year": "",
-      "abstract": "The interaction between humans is very complex to describe since it is composed of different elements from different modalities such as speech, gaze, and gestures influenced by social attitudes and emotions. Furthermore, the interaction can be affected by some features which refer to the interlocutor's state. Actual Socially Interactive Agents SIAs aim to adapt themselves to the state of the interaction partner. In this paper, we discuss this adaptation by describing the architecture of the GRETA platform which considers external features while interacting with humans and/or another ECA and process the dialogue incrementally. We illustrate the new architecture of GRETA which deals with the external features, the adaptation, and the incremental approach for the dialogue processing."
+      "venue": "arXiv preprint arXiv:2503.15504, 2025",
+      "year": "2025",
+      "abstract": ""
+    },
+    {
+      "title": "Adaptive virtual agent: Design and evaluation for real-time human-agent interaction",
+      "authors": [
+        "J Woo",
+        "K Shidara",
+        "C Achard",
+        "H Tanaka",
+        "S Nakamura",
+        "C Pelachaud"
+      ],
+      "venue": "International Journal of Human-Computer Studies 190, 103321, 2024",
+      "year": "2024",
+      "abstract": ""
+    },
+    {
+      "title": "The GENEA Challenge 2023: A large-scale evaluation of gesture generation models in monadic and dyadic settings",
+      "authors": [
+        "T Kucherenko",
+        "R Nagy",
+        "Y Yoon",
+        "J Woo",
+        "T Nikolov",
+        "M Tsakov",
+        "GE Henter"
+      ],
+      "venue": "Proceedings of the 25th international conference on multimodal interaction …, 2023",
+      "year": "2023",
+      "abstract": ""
+    },
+    {
+      "title": "Asap: Endowing adaptation capability to agent in human-agent interaction",
+      "authors": [
+        "J Woo",
+        "C Pelachaud",
+        "C Achard"
+      ],
+      "venue": "Proceedings of the 28th International Conference on Intelligent User …, 2023",
+      "year": "2023",
+      "abstract": ""
+    },
+    {
+      "title": "AMII: Adaptive multimodal inter-personal and intra-personal model for adapted behavior synthesis",
+      "authors": [
+        "J Woo",
+        "M Fares",
+        "C Pelachaud",
+        "C Achard"
+      ],
+      "venue": "arXiv preprint arXiv:2305.11310, 2023",
+      "year": "2023",
+      "abstract": ""
+    },
+    {
+      "title": "IAVA: Interactive and Adaptive Virtual Agent",
+      "authors": [
+        "J Woo",
+        "M Grimaldi",
+        "C Pelachaud",
+        "C Achard"
+      ],
+      "venue": "Proceedings of the 23rd ACM International Conference on Intelligent Virtual …, 2023",
+      "year": "2023",
+      "abstract": ""
+    },
+    {
+      "title": "Reciprocal Adaptation Measures for Human-Agent Interaction Evaluation",
+      "authors": [
+        "J Woo",
+        "C Pelachaud",
+        "C Achard"
+      ],
+      "venue": "15th International Conference on Agents and Artificial Intelligence, 2023",
+      "year": "2023",
+      "abstract": ""
+    },
+    {
+      "title": "An Adaptive Virtual Agent Platform for Automated Social Skills Training",
+      "authors": [
+        "T Saga",
+        "J Woo",
+        "A Gerard",
+        "H Tanaka",
+        "C Achard",
+        "S Nakamura",
+        "..."
+      ],
+      "venue": "Companion Publication of the 25th International Conference on Multimodal …, 2023",
+      "year": "2023",
+      "abstract": ""
+    },
+    {
+      "title": "Conducting Cognitive Behavioral Therapy with an Adaptive Virtual Agent",
+      "authors": [
+        "J Woo",
+        "M Grimaldi",
+        "C Pelachaud",
+        "C Achard"
+      ],
+      "venue": "Proceedings of the 23rd ACM International Conference on Intelligent Virtual …, 2023",
+      "year": "2023",
+      "abstract": ""
+    },
+    {
+      "title": "Exchanging... watch out!",
+      "authors": [
+        "L Yang",
+        "J Woo",
+        "C Achard",
+        "C Pelachaud"
+      ],
+      "venue": "arXiv preprint arXiv:2311.04747, 2023",
+      "year": "2023",
+      "abstract": ""
+    },
+    {
+      "title": "Is Turn-Shift Distinguishable with Synchrony?",
+      "authors": [
+        "J Woo",
+        "L Yang",
+        "C Pelachaud",
+        "C Achard"
+      ],
+      "venue": "International Conference on Human-Computer Interaction, 419-432, 2023",
+      "year": "2023",
+      "abstract": ""
     },
     {
       "title": "GRAB-HAI: Generating Reciprocally Adaptive Behavior for Human-Agent Interaction",
       "authors": [
-        "Jieyeon Woo"
+        "J Woo"
       ],
-      "venue": "",
-      "year": "",
-      "abstract": "Information is transferred from one person to another via communication. Through this transfer, we convey our thought and intentions via multimodal signals such as words, gestures, and prosody. This exchange of signals is a two-way process of sending and receiving where the behaviors of the interlocutors adapt to each other. Such adaptation is continuous, dynamical, and reciprocal which we refer to as reciprocal adaptation. Adapting to others allows interactions to be engaging and effective. Endowing such capacity to embodied agents, Socially Interactive Agents (SIAs) and robots, can make them more social and engaging and perceived as natural and human-like. Nevertheless, this endowment is a challenging task. The agents need to know how to adapt as both a speaker or a listener while emitting behaviors related to its own speech synchronized over its modalities, intrapersonal relationship, and with its interlocutor’s behaviors, interpersonal relationship. The central focus of this thesis is to develop an adaptive SIA with reciprocal adaptation capabilities. We propose computational models, ASAP and HI2-ADAM, to render SIA’s adaptive behaviors as both speaker or a listener. ASAP generates adaptive and continuous behavior using multimodal signal information from its user and itself by modeling the interpersonal relationship between them. HI2-ADAM captures the reciprocal adaptation and intrapersonal relationship in an explicit way by modeling each modality history of each interlocutor and learning from the relation between these different histories. As it is important for agents to act as interaction partners and continuously adapt their …"
+      "venue": "Sorbonne Université, 2023",
+      "year": "2023",
+      "abstract": ""
     },
     {
       "title": "GENEA Workshop 2023: The 4th Workshop on Generation and Evaluation of Non-verbal Behaviour for Embodied Agents",
       "authors": [
-        "Youngwoo Yoon",
-        "Taras Kucherenko",
-        "Jieyeon Woo",
-        "Pieter Wolfert",
-        "Rajmund Nagy",
-        "Gustav Eje Henter"
+        "Y Yoon",
+        "T Kucherenko",
+        "J Woo",
+        "P Wolfert",
+        "R Nagy",
+        "GE Henter"
       ],
-      "venue": "",
-      "year": "",
-      "abstract": " Non-verbal behavior is advantageous for embodied agents when interacting with humans. Despite many years of research on the generation of non-verbal behavior, there is no established benchmarking practice in the field. Most researchers do not compare their results to prior work, and if they do, they often do so in a manner that is not compatible with other approaches. The GENEA Workshop 2023 seeks to bring the community together to discuss the major challenges and solutions, and to identify the best ways to progress the field."
+      "venue": "Proceedings of the 25th International Conference on Multimodal Interaction …, 2023",
+      "year": "2023",
+      "abstract": ""
     },
     {
       "title": "Are we in sync during turn switch?",
       "authors": [
-        "Jieyeon Woo",
-        "Liu Yang",
-        "Catherine Achard",
-        "Catherine Pelachaud"
+        "J Woo",
+        "L Yang",
+        "C Achard",
+        "C Pelachaud"
       ],
-      "venue": "",
-      "year": "",
-      "abstract": "During an interaction, people exchange speaking turns by coordinating with their partners. Exchanges can be done smoothly, with pauses between turns or through interruptions. Previous studies have analyzed various modalities to investigate turn shifts and their types (smooth turn exchange, overlap, and interruption). Modality analyses were also done to study the interpersonal synchronization which is observed throughout the whole interaction. Likewise, we intend to analyze different modalities to find a relationship between the different turn switch types and interpersonal synchrony. In this study, we provide an analysis of multimodal features, focusing on prosodic features (F0 and loudness), head activity, and facial action units, to characterize different switch types."
+      "venue": "2023 IEEE 17th International Conference on Automatic Face and Gesture …, 2023",
+      "year": "2023",
+      "abstract": ""
+    },
+    {
+      "title": "Creating an interactive human/agent loop using multimodal recurrent neural networks",
+      "authors": [
+        "J Woo",
+        "CI Pelachaud",
+        "C Achard"
+      ],
+      "venue": "WACAI 2021, 2021",
+      "year": "2021",
+      "abstract": ""
+    },
+    {
+      "title": "Development of an interactive human/agent loop using multimodal recurrent neural networks",
+      "authors": [
+        "J Woo"
+      ],
+      "venue": "Proceedings of the 2021 International Conference on Multimodal Interaction …, 2021",
+      "year": "2021",
+      "abstract": ""
+    },
+    {
+      "title": "A framework for the assessment and training of collaborative problem-solving social skills",
+      "authors": [
+        "J Hamet Bagnou",
+        "E Prigent",
+        "JC Martin",
+        "J Woo",
+        "L Yang",
+        "C Achard",
+        "..."
+      ],
+      "venue": "Companion Publication of the 2021 International Conference on Multimodal …, 2021",
+      "year": "2021",
+      "abstract": ""
     }
   ]
 }
