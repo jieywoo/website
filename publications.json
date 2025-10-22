@@ -1,0 +1,230 @@
+{
+  "items": [
+    {
+      "title": "The GENEA Challenge 2023: A large-scale evaluation of gesture generation models in monadic and dyadic settings",
+      "authors": [
+        "Taras Kucherenko",
+        "Rajmund Nagy",
+        "Youngwoo Yoon",
+        "Jieyeon Woo",
+        "Teodor Nikolov",
+        "Mihail Tsakov",
+        "Gustav Eje Henter"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 72
+    },
+    {
+      "title": "Adaptive virtual agent: Design and evaluation for real-time human-agent interaction",
+      "authors": [
+        "Jieyeon Woo",
+        "Kazuhiro Shidara",
+        "Catherine Achard",
+        "Hiroki Tanaka",
+        "Satoshi Nakamura",
+        "Catherine Pelachaud"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 19
+    },
+    {
+      "title": "Asap: Endowing adaptation capability to agent in human-agent interaction",
+      "authors": [
+        "Jieyeon Woo",
+        "Catherine Pelachaud",
+        "Catherine Achard"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 15
+    },
+    {
+      "title": "Creating an interactive human/agent loop using multimodal recurrent neural networks",
+      "authors": [
+        "Jieyeon Woo",
+        "Catherine I Pelachaud",
+        "Catherine Achard"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 12
+    },
+    {
+      "title": "AMII: Adaptive multimodal inter-personal and intra-personal model for adapted behavior synthesis",
+      "authors": [
+        "Jieyeon Woo",
+        "Mireille Fares",
+        "Catherine Pelachaud",
+        "Catherine Achard"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 11
+    },
+    {
+      "title": "IAVA: Interactive and Adaptive Virtual Agent",
+      "authors": [
+        "Jieyeon Woo",
+        "Michele Grimaldi",
+        "Catherine Pelachaud",
+        "Catherine Achard"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 10
+    },
+    {
+      "title": "Reciprocal Adaptation Measures for Human-Agent Interaction Evaluation",
+      "authors": [
+        "Jieyeon Woo",
+        "Catherine Pelachaud",
+        "Catherine Achard"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 6
+    },
+    {
+      "title": "An Adaptive Virtual Agent Platform for Automated Social Skills Training",
+      "authors": [
+        "Takeshi Saga",
+        "Jieyeon Woo",
+        "Alexis Gerard",
+        "Hiroki Tanaka",
+        "Catherine Achard",
+        "Satoshi Nakamura",
+        "Catherine Pelachaud"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 4
+    },
+    {
+      "title": "Conducting Cognitive Behavioral Therapy with an Adaptive Virtual Agent",
+      "authors": [
+        "Jieyeon Woo",
+        "Michele Grimaldi",
+        "Catherine Pelachaud",
+        "Catherine Achard"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 4
+    },
+    {
+      "title": "Development of an interactive human/agent loop using multimodal recurrent neural networks",
+      "authors": [
+        "Jieyeon Woo"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 3
+    },
+    {
+      "title": "A framework for the assessment and training of collaborative problem-solving social skills",
+      "authors": [
+        "Jennifer Hamet Bagnou",
+        "Elise Prigent",
+        "Jean-Claude Martin",
+        "Jieyeon Woo",
+        "Liu Yang",
+        "Catherine Achard",
+        "Catherine Pelachaud",
+        "Céline Clavel"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 2
+    },
+    {
+      "title": "Exchanging... watch out!",
+      "authors": [
+        "Liu Yang",
+        "Jieyeon Woo",
+        "Catherine Achard",
+        "Catherine Pelachaud"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 1
+    },
+    {
+      "title": "Is Turn-Shift Distinguishable with Synchrony?",
+      "authors": [
+        "Jieyeon Woo",
+        "Liu Yang",
+        "Catherine Pelachaud",
+        "Catherine Achard"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 1
+    },
+    {
+      "title": "Multimodal Adaptive Behavior Generation During Human–Agent Interaction",
+      "authors": [
+        "Jieyeon Woo",
+        "Catherine Achard",
+        "Catherine Pelachaud"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 0
+    },
+    {
+      "title": "GRETA: Modular Platform to Create Adaptive Socially Interactive Agents",
+      "authors": [
+        "Michele Grimaldi",
+        "Jieyeon Woo",
+        "Fabien Boucaud",
+        "Lucie Galland",
+        "Nezih Younsi",
+        "Liu Yang",
+        "Mireille Fares",
+        "Sean Graux",
+        "Philippe Gauthier",
+        "Catherine Pelachaud"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 0
+    },
+    {
+      "title": "GRAB-HAI: Generating Reciprocally Adaptive Behavior for Human-Agent Interaction",
+      "authors": [
+        "Jieyeon Woo"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 0
+    },
+    {
+      "title": "GENEA Workshop 2023: The 4th Workshop on Generation and Evaluation of Non-verbal Behaviour for Embodied Agents",
+      "authors": [
+        "Youngwoo Yoon",
+        "Taras Kucherenko",
+        "Jieyeon Woo",
+        "Pieter Wolfert",
+        "Rajmund Nagy",
+        "Gustav Eje Henter"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 0
+    },
+    {
+      "title": "Are we in sync during turn switch?",
+      "authors": [
+        "Jieyeon Woo",
+        "Liu Yang",
+        "Catherine Achard",
+        "Catherine Pelachaud"
+      ],
+      "venue": null,
+      "year": null,
+      "citations": 0
+    }
+  ]
+}
