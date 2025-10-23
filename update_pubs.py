@@ -2,7 +2,7 @@ import json, asyncio, re
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
 
-SCHOLAR_ID = "GOCSqdUAAAAJ"  # <-- your Google Scholar ID
+SCHOLAR_ID = "GOCSqdUAAAAJ"
 OUTPUT = "publications.json"
 
 async def fetch_publications_page(page):
